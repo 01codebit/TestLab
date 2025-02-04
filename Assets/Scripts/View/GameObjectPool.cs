@@ -41,7 +41,7 @@ namespace TestLab.EventChannel.View
             obj.transform.position = position;
             if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
-                rb.velocity = Vector3.zero;
+                rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
             }
 
