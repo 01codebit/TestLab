@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Logging.cs" />
     <Compile Include="Assets\Scripts\Model\ListWrapper.cs" />
     <Compile Include="Assets\Scripts\View\DataView.cs" />
+    <Compile Include="Assets\Scripts\TestInputSystem.cs" />
     <Compile Include="Assets\Scripts\Model\IEventBasedData.cs" />
     <Compile Include="Assets\Scripts\Channels\HandleEventSO.cs" />
     <Compile Include="Assets\Scripts\Channels\NetworkEventChannelSO.cs" />
@@ -834,6 +835,10 @@
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{23101cba-7373-54a7-1981-5edfd6c003f1}</Project>
       <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.InputSystem.csproj">
+      <Project>{3bdc816d-efde-7d67-6635-15a22ae98291}</Project>
+      <Name>Unity.InputSystem</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{5fd9544b-3b54-9449-7bde-47fb5fda74e8}</Project>

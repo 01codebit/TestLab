@@ -90,8 +90,8 @@
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\RenderPipeline\ICloudBackground.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\Volume\KeyframeUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\Lighting\ProbeVolume\ProbeVolumePositioning.cs" />
-    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\Textures\MSAASamples.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\Common\ReloadGroupAttribute.cs" />
+    <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\Textures\MSAASamples.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\Lighting\ProbeVolume\IProbeVolumeEnabledRenderPipeline.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\RenderGraph\RenderGraphUtilsResources.cs" />
     <Compile Include="Library\PackageCache\com.unity.render-pipelines.core@7bffd5bb179a\Runtime\Textures\PowerOfTwoTextureAtlas.cs" />

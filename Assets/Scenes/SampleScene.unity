@@ -424,12 +424,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240429000}
   m_CullTransparentMesh: 1
+--- !u!1 &281728891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4443241622972114382, guid: da78ac33b0e9a6b4e8eabcd570fb7cb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3444571559845289823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &281728896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4569413022713636730, guid: da78ac33b0e9a6b4e8eabcd570fb7cb9,
     type: 3}
   m_PrefabInstance: {fileID: 3444571559845289823}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &281728897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281728891}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a9160582fb404d85494aa2b8034207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &281728898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281728891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d48afaf039a664ab59d9184cd69e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 330585545}
+--- !u!54 &281728903
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281728891}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,8 +638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a9160582fb404d85494aa2b8034207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 330585545}
-  cameraTransform: {fileID: 330585546}
 --- !u!114 &391451507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,7 +2497,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4443241622972114382, guid: da78ac33b0e9a6b4e8eabcd570fb7cb9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 281728897}
+    - targetCorrespondingSourceObject: {fileID: 4443241622972114382, guid: da78ac33b0e9a6b4e8eabcd570fb7cb9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 281728898}
+    - targetCorrespondingSourceObject: {fileID: 4443241622972114382, guid: da78ac33b0e9a6b4e8eabcd570fb7cb9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 281728903}
   m_SourcePrefab: {fileID: 100100000, guid: da78ac33b0e9a6b4e8eabcd570fb7cb9, type: 3}
 --- !u!1001 &6962479643373550844
 PrefabInstance:

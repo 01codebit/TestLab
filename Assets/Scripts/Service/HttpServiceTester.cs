@@ -3,7 +3,6 @@ using System.Diagnostics;
 using Logging;
 using TestLab.EventChannel.Model;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 namespace TestLab.EventChannel
 {
@@ -13,14 +12,14 @@ namespace TestLab.EventChannel
 
         private void OnEnable()
         {
-            ConditionalLogger.Log("[EventListener.OnEnable] subscribe to VoidEventChannelSO");
+            ConditionalLogger.Log("[EventListener.OnEnable] subscribe to NetworkEventChannelSO");
             
             m_NetworkEventChannel.OnEventRaised += TestGetAsync;
         }
 
         private void OnDisable()
         {
-            ConditionalLogger.Log("[EventListener.OnDisable] unsubscribe to VoidEventChannelSO");
+            ConditionalLogger.Log("[EventListener.OnDisable] unsubscribe to NetworkEventChannelSO");
             m_NetworkEventChannel.OnEventRaised -= TestGetAsync;
         }
         
@@ -39,7 +38,7 @@ namespace TestLab.EventChannel
             await HttpService.GetFromJsonAsync<Todo>(_endpoint, _parameters);
             sw.Stop();
             ConditionalLogger.Log($"[HttpServiceTester.Start] end ({sw.ElapsedMilliseconds}ms)");
-            m_NetworkEventChannel.OnFinishEventRaised();
+            m_NetworkEventChannel.RaiseFinishEvent();
         }
     }
 }
