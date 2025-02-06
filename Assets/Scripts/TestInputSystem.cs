@@ -103,6 +103,8 @@ namespace TestLab.EventChannel
                     item.name = $"PooledObject_#{pooledObjects}";
                     item.transform.position = hit.point + new Vector3(0, 0.5f, 0);
                     pooledObjects++;
+
+                    StartCoroutine(ReleaseAfter(item, 3.0f));
                 }
 
                 // Timer t = new(new TimerCallback(_ => clickingEnabled = true), this, 1, 1000);
@@ -115,6 +117,12 @@ namespace TestLab.EventChannel
         {
             yield return new WaitForSeconds(seconds);
             clickingEnabled = true;
+        }
+
+        IEnumerator ReleaseAfter(GameObject gameObject, float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            gameObjectPool.ReleaseObject(gameObject);
         }
 
         private void OnCollisionEnter(Collision collision)
