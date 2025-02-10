@@ -209,8 +209,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Unity\MacroScriptableObject.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Operators\LessThanOrEqualHandler.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Listeners\MonoBehaviour\UnityOnCollisionStayMessageListener.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Cloning\Cloners\ArrayCloner.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Operators\MultiplicationHandler.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Cloning\Cloners\ArrayCloner.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Operators\ExclusiveOrHandler.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Input\MouseButton.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Optimization\Func_5.cs" />
@@ -300,11 +300,11 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Operators\InequalityHandler.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Ensure\EnsureThat.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Optimization\InstanceActionInvoker_1.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\TypeNameDetail.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Optimization\InstanceFunctionInvokerBase.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\TypeNameDetail.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Platforms\AotIncompatibleAttribute.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Operators\InvalidOperatorException.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Graphs\GraphStack.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Operators\InvalidOperatorException.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Collections\AotDictionary.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Connections\ConnectionCollectionBase.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Graphs\IGraphRoot.cs" />
@@ -351,8 +351,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Properties\AssemblyInfo.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Serialization\SerializeAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Operators\LeftShiftHandler.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Listeners\UI\UnityOnDropdownValueChangedMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\EditorBinding\Inspector\InspectorLabelAttribute.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Listeners\UI\UnityOnDropdownValueChangedMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Optimization\Action_6.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Listeners\MessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsMemberSerialization.cs" />
@@ -369,8 +369,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsConfig.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Utilities\IGettable.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Unity\SceneSingleton.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Listeners\UIInterfaces\UnityOnDragMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Collections\IKeyedCollection.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Listeners\UIInterfaces\UnityOnDragMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Cloning\ISpecifiesCloner.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Serialization\DictionaryAsset.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\EditorBinding\Inspector\InspectorTextAreaAttribute.cs" />
@@ -474,8 +474,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvokerBase.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsISerializationCallbacks.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsSerializer.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Variables\IGraphWithVariables.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Collections\VariantCollection.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\Variables\IGraphWithVariables.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\EditorBinding\Inspector\InspectorRangeAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\EditorBinding\EditorBindingUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Core\EditorBinding\WarnBeforeEditingAttribute.cs" />
@@ -971,12 +971,20 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.36f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Cecil.Awesome">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Unity.Cecil.Awesome.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
@@ -991,6 +999,10 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@001b54a8988a\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@001b54a8988a\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
@@ -1003,16 +1015,28 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.IO.Hashing">
+      <HintPath>Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.Tests\System.IO.Hashing\System.IO.Hashing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

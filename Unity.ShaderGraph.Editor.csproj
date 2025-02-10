@@ -432,8 +432,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Nodes\Procedural\Shape\RoundedRectangleNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Generation\Targets\Canvas\CanvasSubTarget.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Nodes\Input\CustomInterpolatorNode.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Generation\Enumerations\KeywordShaderStage.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Drawing\Blackboard\BlackboardUtils.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Generation\Enumerations\KeywordShaderStage.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Generation\Data\ConditionalField.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Generation\Enumerations\NormalDropOffSpace.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Drawing\Inspector\PropertyDrawers\SampleVirtualTextureNodePropertyDrawer.cs" />
@@ -618,8 +618,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Nodes\Input\Basic\Vector1Node.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Util\Identifier.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Nodes\Artistic\Normal\NormalFromTextureNode.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Graphs\GradientMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Nodes\Utility\PreviewNode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Graphs\GradientMaterialSlot.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Nodes\Input\Texture\SampleTexture2DLODNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Nodes\Procedural\Noise\GradientNoiseNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@911117698220\Editor\Data\Graphs\SamplerStateShaderProperty.cs" />
@@ -1366,12 +1366,20 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.36f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Cecil.Awesome">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Unity.Cecil.Awesome.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
@@ -1386,6 +1394,10 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@001b54a8988a\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@001b54a8988a\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
@@ -1398,16 +1410,28 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.IO.Hashing">
+      <HintPath>Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.Tests\System.IO.Hashing\System.IO.Hashing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">

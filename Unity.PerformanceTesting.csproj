@@ -98,14 +98,14 @@
     <Compile Include="Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b\Runtime\Data\PerformanceTestResult.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b\Runtime\Statistics\OutlierMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b\Runtime\PerformanceTest.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.PerformanceTests.Internal\AssemblyInfo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.PerformanceTests.Internal\AssemblyInfo.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b\Runtime\SampleGroup.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b\Runtime\Utils.cs" />
     <Compile Include="Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b\Runtime\Statistics\StudentDistributionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\PackageCache\com.unity.test-framework.performance@fb0dc592af8b\Runtime\Unity.PerformanceTesting.asmdef" />
-    <None Include="Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.PerformanceTests.Internal\Unity.Collections.PerformanceTests.Internal.asmref" />
+    <None Include="Library\PackageCache\com.unity.collections@e8c387a7c740\Unity.Collections.PerformanceTests.Internal\Unity.Collections.PerformanceTests.Internal.asmref" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

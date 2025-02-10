@@ -4,12 +4,17 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Logging;
 using TestLab.EventChannel.Model;
+using Unity.Jobs;
 using UnityEngine;
 
 namespace TestLab.EventChannel
 {
-    public class HttpService
+    public class HttpService : IJob
     {
+        public void Execute()
+        {
+
+        }
         private const string baseUri = "https://jsonplaceholder.typicode.com"; 
         
         // HttpClient lifecycle management best practices:

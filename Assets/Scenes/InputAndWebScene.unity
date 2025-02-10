@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NetworkEventChannel: {fileID: 11400000, guid: 087139530d68b73418c83f98389b3b1f,
     type: 2}
+  m_container: {fileID: 1948656179}
 --- !u!1 &849971262
 GameObject:
   m_ObjectHideFlags: 0

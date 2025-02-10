@@ -790,19 +790,19 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.Pdb.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Pdb.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.Mdb.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Mdb.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.Rocks.dll</HintPath>
+      <HintPath>Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities.CodeGen\Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">

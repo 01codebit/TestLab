@@ -7,11 +7,14 @@ namespace TestLab.EventChannel.View
     public class LoadButton : MonoBehaviour
     {
         [SerializeField] private NetworkEventChannelSO m_NetworkEventChannel;
+        [SerializeField] private GameObject m_container;
 
         private Button _button;
 
         private void OnEnable()
         {
+            m_container.SetActive(false);
+            
             _button = GetComponent<Button>();
             _button.onClick.AddListener(TriggerNetworkEvent);
         }
@@ -23,6 +26,7 @@ namespace TestLab.EventChannel.View
 
         private void TriggerNetworkEvent()
         {
+            m_container.SetActive(true);
             ConditionalLogger.Log("[LoadButton.TriggerNetworkEvent] raise network event");
             m_NetworkEventChannel?.RaiseEvent();
         }
