@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 492809770}
   - component: {fileID: 492809769}
   - component: {fileID: 492809773}
-  - component: {fileID: 492809774}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -549,19 +548,6 @@ MonoBehaviour:
   CoordX: 0
   CoordY: 0
   ZoomLevel: 0
---- !u!114 &492809774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492809768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d5639dd2a7e0545bbf07029fa5f3bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileDownloader: {fileID: 492809773}
 --- !u!114 &583082702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1481302681}
+  - component: {fileID: 1481302682}
   m_Layer: 0
   m_Name: MapGrid
   m_TagString: Untagged
@@ -772,6 +759,20 @@ Transform:
   - {fileID: 492809772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1481302682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481302680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d5639dd2a7e0545bbf07029fa5f3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 492809768}
+  speedScale: 0.1
 --- !u!114 &1860679529
 MonoBehaviour:
   m_ObjectHideFlags: 0
