@@ -28,19 +28,23 @@ namespace DOTSTest
                      SystemAPI.Query<RefRO<BallGroup>, RefRO<LocalToWorld>>()
                          .WithEntityAccess())
             {
-                var boidEntities =
-                    CollectionHelper.CreateNativeArray<Entity, RewindableAllocator>(ballGroup.ValueRO.Count,
-                        ref world.UpdateAllocator);
+                int totalBalls = ballGroup.ValueRO.Columns * ballGroup.ValueRO.Rows;
 
-                state.EntityManager.Instantiate(ballGroup.ValueRO.Prefab, boidEntities);
+                var ballEntities =
+                    CollectionHelper.CreateNativeArray<Entity, RewindableAllocator>(totalBalls, ref world.UpdateAllocator);
 
-                var setBoidLocalToWorldJob = new SetBallLocalToWorld
+                state.EntityManager.Instantiate(ballGroup.ValueRO.Prefab, ballEntities);
+
+                var setBallLocalToWorldJob = new SetBallLocalToWorld
                 {
                     LocalToWorldFromEntity = localToWorldLookup,
-                    Entities = boidEntities,
-                    Center = ballGroupLocalToWorld.ValueRO.Position
+                    Entities = ballEntities,
+                    Center = ballGroupLocalToWorld.ValueRO.Position,
+                    Columns = ballGroup.ValueRO.Columns,
+                    Rows = ballGroup.ValueRO.Rows
                 };
-                state.Dependency = setBoidLocalToWorldJob.Schedule(ballGroup.ValueRO.Count, 64, state.Dependency);
+
+                state.Dependency = setBallLocalToWorldJob.Schedule(totalBalls, 64, state.Dependency);
                 state.Dependency.Complete();
 
                 ecb.DestroyEntity(entity);
@@ -62,14 +66,16 @@ namespace DOTSTest
 
         public NativeArray<Entity> Entities;
         public float3 Center;
-        public float Radius;
+        public float Columns;
+        public float Rows;
 
         public void Execute(int i)
         {
             var entity = Entities[i];
             var random = new Random(((uint)(entity.Index + i + 1) * 0x9F6ABC1));
             var dir = math.normalizesafe(random.NextFloat3() - new float3(0.5f, 0.5f, 0.5f));
-            var pos = Center + (dir * Radius);
+            float3 origin = new float3(Center.x - Columns/2, 1.0f, Center.z - Rows/2);
+            var pos = new float3(origin.x + i%Columns, origin.y, origin.z + i/Columns);
             var localToWorld = new LocalToWorld
             {
                 Value = float4x4.TRS(pos, quaternion.LookRotationSafe(dir, math.up()), new float3(1.0f, 1.0f, 1.0f))

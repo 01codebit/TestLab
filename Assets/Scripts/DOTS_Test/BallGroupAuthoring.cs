@@ -6,7 +6,8 @@ namespace DOTSTest
     public class BallGroupAuthoring : MonoBehaviour
     {
         public GameObject Prefab;
-        public int Count;
+        public int Columns;
+        public int Rows;
 
         class Baker : Baker<BallGroupAuthoring>
         {
@@ -16,7 +17,8 @@ namespace DOTSTest
                 AddComponent(entity, new BallGroup
                 {
                     Prefab = GetEntity(authoring.Prefab, TransformUsageFlags.Renderable|TransformUsageFlags.WorldSpace),
-                    Count = authoring.Count
+                    Columns = authoring.Columns,
+                    Rows = authoring.Rows
                 });
             }
         }
@@ -25,6 +27,7 @@ namespace DOTSTest
     public struct BallGroup : IComponentData
     {
         public Entity Prefab;
-        public int Count;
+        public int Columns;
+        public int Rows;
     }
 }
