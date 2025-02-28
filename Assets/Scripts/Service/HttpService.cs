@@ -6,15 +6,17 @@ using Logging;
 using TestLab.EventChannel.Model;
 using Unity.Jobs;
 using UnityEngine;
+using Unity.Burst;
 
 namespace TestLab.EventChannel
 {
-    public class HttpService : IJob
+    [BurstCompile]
+    public static class HttpService //: IJob
     {
-        public void Execute()
-        {
+        // public void Execute()
+        // {
 
-        }
+        // }
         private const string baseUri = "https://jsonplaceholder.typicode.com"; 
         
         // HttpClient lifecycle management best practices:
