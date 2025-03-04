@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\DI_Test\DIControllerWithZenject.cs" />
     <Compile Include="Assets\Scripts\View\PoolManager.cs" />
     <Compile Include="Assets\Scripts\TestInputSettingsSO.cs" />
+    <Compile Include="Assets\Scripts\CameraDebugger.cs" />
     <Compile Include="Assets\Scripts\EventRaiser.cs" />
     <Compile Include="Assets\Scripts\Service\HttpService.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\BallGroupAuthoring.cs" />
