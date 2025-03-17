@@ -18,11 +18,11 @@ namespace DefaultNamespace
             var objectName = labeledObject.name;
             labelView = labelPrefab.GetComponent<LabelView>();
             labelView.SetLabelText(objectName);
-
+            
             mainCamera = Camera.main;
-            label = Instantiate(labelPrefab);
-            label.transform.SetParent(uiCanvas.transform);
-
+            label = Instantiate(labelPrefab, uiCanvas.transform);
+            label.name = $"Object2DLabel [{objectName}]";
+            
             SetLabel();
         }
 
@@ -40,7 +40,7 @@ namespace DefaultNamespace
             objectPos += new Vector3(0, labelHeight, 0);
             var screenPos = mainCamera.WorldToScreenPoint(objectPos);
             label.transform.position = screenPos;
-            // lbl.transform.localScale = transform.localScale;
+            label.transform.localScale = transform.localScale * 0.2f;
         }
     }
 }
