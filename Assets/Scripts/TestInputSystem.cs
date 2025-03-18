@@ -66,7 +66,7 @@ namespace TestLab.EventChannel
             {
                 moveValue *= settings.Sprint;
             }
-
+            
             transform.position += transform.forward * moveValue.y;
             transform.position += transform.right * moveValue.x;
 

@@ -23,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-PoolMonitor-Editor"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tayx.Graphy.Editor", "Tayx.Graphy.Editor.csproj", "{a0b8942f-78ec-067f-f0d0-0bb6cb0e4c7b}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{334ec9dc-a355-d4e9-3ff4-f2a255c9230f}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{028fb683-dea6-3739-711b-63d5376bce73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{334ec9dc-a355-d4e9-3ff4-f2a255c9230f}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{9f76591b-ec05-6c03-96bc-9fee363cbe37}"
 EndProject
@@ -56,10 +56,10 @@ Global
 		{c4b888c2-d5f8-9fee-f351-211621d0a516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{a0b8942f-78ec-067f-f0d0-0bb6cb0e4c7b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{a0b8942f-78ec-067f-f0d0-0bb6cb0e4c7b}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{334ec9dc-a355-d4e9-3ff4-f2a255c9230f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{334ec9dc-a355-d4e9-3ff4-f2a255c9230f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{028fb683-dea6-3739-711b-63d5376bce73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{028fb683-dea6-3739-711b-63d5376bce73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{334ec9dc-a355-d4e9-3ff4-f2a255c9230f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{334ec9dc-a355-d4e9-3ff4-f2a255c9230f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9f76591b-ec05-6c03-96bc-9fee363cbe37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9f76591b-ec05-6c03-96bc-9fee363cbe37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
