@@ -974,6 +974,74 @@ MonoBehaviour:
   labelPrefab: {fileID: 8993522781157016142, guid: 07565d4f37319344885fc348df96b25f,
     type: 3}
   labelHeight: 5
+--- !u!1 &1390234571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390234573}
+  - component: {fileID: 1390234572}
+  - component: {fileID: 1390234574}
+  m_Layer: 0
+  m_Name: UILabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1390234572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390234571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: f2f4413127e7ea448a186fa6ca9a94cd, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 40e68ed6ef1f6004b86bd92ccb8263a3,
+    type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!4 &1390234573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390234571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390234574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390234571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5477b9755484d17bf9d6af5e13e8d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2058992425}
+  uiDocument: {fileID: 1390234572}
+  labelName: UILabel
 --- !u!1 &1600600825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1090,7 @@ GameObject:
   - component: {fileID: 1876387717}
   - component: {fileID: 1876387720}
   - component: {fileID: 1876387719}
+  - component: {fileID: 1876387721}
   m_Layer: 0
   m_Name: Cube1Label
   m_TagString: Untagged
@@ -1080,9 +1149,10 @@ MonoBehaviour:
   panelHeight: 720
   panelScale: 1
   pixelsPerUnit: 500
-  visualTreeAsset: {fileID: 0}
-  panelSettingsAsset: {fileID: 0}
-  renderTextureAsset: {fileID: 0}
+  visualTreeAsset: {fileID: 9197481963319205126, guid: 5992d0a9c5bb3a542aed50ae0d2db36a,
+    type: 3}
+  panelSettingsAsset: {fileID: 11400000, guid: f2f4413127e7ea448a186fa6ca9a94cd, type: 2}
+  renderTextureAsset: {fileID: 8400000, guid: cb5078de31654dd4caf0988186d6f1ac, type: 2}
 --- !u!114 &1876387719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,7 +1160,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876387715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b21a95a93fe4f32b149bbecf398f395, type: 3}
   m_Name: 
@@ -1103,12 +1173,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876387715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 998f1cb9a17d4bab988333105ed6a4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocumentPrefab: {fileID: 1876387718}
+--- !u!114 &1876387721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876387715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d56796aed47c64bb6b64e60392e19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2058992425}
+  uiDocument: {fileID: 1876387718}
 --- !u!1 &2058992425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,3 +1311,4 @@ SceneRoots:
   - {fileID: 1600600826}
   - {fileID: 288082159}
   - {fileID: 609316828}
+  - {fileID: 1390234573}

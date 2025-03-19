@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\MinimalTimer.cs" />
     <Compile Include="Assets\Scripts\Model\DataStructure.cs" />
     <Compile Include="Assets\Scripts\Service\HttpUtils.cs" />
+    <Compile Include="Assets\Scripts\UI\LabelBinder.cs" />
     <Compile Include="Assets\Scripts\View\ListItemPresenter.cs" />
     <Compile Include="Assets\Scripts\UpdateManager.cs" />
     <Compile Include="Assets\Scripts\LabelController.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\DI_Test\DIControllerWithoutZenject.cs" />
     <Compile Include="Assets\Scripts\View\DataView.cs" />
     <Compile Include="Assets\Scripts\ExamplePerlinNoise.cs" />
+    <Compile Include="Assets\Scripts\UI\UILabelBinder.cs" />
     <Compile Include="Assets\Scripts\TestInputSystem.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\BallAuthoring.cs" />
     <Compile Include="Assets\Scripts\MapSystem\TileDownloader.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Assets\Scripts\VisibilityChecker.cs" />
     <Compile Include="Assets\Scripts\Channels\VoidEventChannelSO.cs" />
     <Compile Include="Assets\Scripts\NetworkEventListener.cs" />
+    <None Include="Assets\Scripts\UI\UI_2D.uxml" />
     <None Include="Assets\Scripts\UI\WorldUI.uxml" />
     <None Include="Assets\Scripts\TestLab.asmdef" />
     <Reference Include="UnityEngine">
