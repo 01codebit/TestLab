@@ -24,6 +24,9 @@ public class UILabelBinder : MonoBehaviour
         if (target.transform.hasChanged)
         {
             var uiPos = camera.WorldToScreenPoint(target.transform.position);
+            
+            Debug.Log($"[UILabelBinder.Update] uiPos: ({uiPos.x}, {uiPos.y}, {uiPos.z})");
+
             label.style.bottom = uiPos.y;
             label.style.left = uiPos.x;
         }
