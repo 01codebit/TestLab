@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Unity.Transforms;
 using UnityEngine;
 
 public class PinchDetection : MonoBehaviour

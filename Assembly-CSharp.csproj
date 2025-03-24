@@ -58,6 +58,7 @@
     <Analyzer Include="C:\Users\lumas\UnityProjects\TestLab\Library\PackageCache\com.unity.entities@732b1f537003\Unity.Entities\SourceGenerators\Unity.Entities.Analyzer.CodeFixes.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\UILabelClick.cs" />
     <Compile Include="Assets\InputSystem_Actions.cs" />
     <Compile Include="Assets\PinchDetection.cs" />
     <Compile Include="Assets\Samples\Input System\1.12.0\Custom Device\CustomDevice.cs" />

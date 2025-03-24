@@ -25,11 +25,13 @@ public class UILabelBinder : MonoBehaviour
         {
             var uiPos = camera.WorldToScreenPoint(target.transform.position);
             
-            Debug.Log($"[UILabelBinder.Update] Screen: width: {Screen.width}, height: {Screen.height}");
-            Debug.Log($"[UILabelBinder.Update] uiPos: ({uiPos.x}, {uiPos.y}, {uiPos.z})");
+            // Debug.Log($"[UILabelBinder.Update] Screen: width: {Screen.width}, height: {Screen.height}");
+            // Debug.Log($"[UILabelBinder.Update] uiPos: ({uiPos.x}, {uiPos.y}, {uiPos.z})");
 
-            label.style.bottom = uiPos.y;
-            label.style.left = uiPos.x;
+            var dh = 100;//label.style.height.value.value * 2f;
+            label.style.bottom = uiPos.y + dh;
+            var dw = label.style.width.value.value * .5f;
+            label.style.left = uiPos.x - dw;
         }
     }
 }
