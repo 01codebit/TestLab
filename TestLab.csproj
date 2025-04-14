@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\MinimalTimer.cs" />
     <Compile Include="Assets\Scripts\Model\DataStructure.cs" />
     <Compile Include="Assets\Scripts\Service\HttpUtils.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool\PooledObjectsManager.cs" />
     <Compile Include="Assets\Scripts\UI\LabelBinder.cs" />
     <Compile Include="Assets\Scripts\View\ListItemPresenter.cs" />
     <Compile Include="Assets\Scripts\UpdateManager.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\Scripts\DOTS_Test\NotDotsBallSpawner.cs" />
     <Compile Include="Assets\Scripts\TestDrawLineScript.cs" />
     <Compile Include="Assets\Scripts\Model\IDataModel.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool\GameObjectPool.cs" />
     <Compile Include="Assets\Scripts\Model\Todo.cs" />
     <Compile Include="Assets\Scripts\Logging.cs" />
     <Compile Include="Assets\Scripts\Model\ListWrapper.cs" />
