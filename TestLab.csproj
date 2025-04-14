@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Service\HttpService.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\BallGroupAuthoring.cs" />
     <Compile Include="Assets\Scripts\CameraMover.cs" />
+    <Compile Include="Assets\Scripts\DOTS_Test\TestSystem.cs" />
     <Compile Include="Assets\Scripts\Service\HttpServiceTester.cs" />
     <Compile Include="Assets\Scripts\Service\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\LabelSpawner.cs" />
