@@ -8,7 +8,8 @@ namespace ObjectPool
         private GameObject _prefab;
         private Transform _anchor;
         private static string _defaultName;
-
+        private int _maxSize;
+        
         private ObjectPool<GameObject> _pool;
         
         public ObjectPool<GameObject> Build(GameObject prefab, Transform transform, string defaultName)
@@ -39,10 +40,11 @@ namespace ObjectPool
             return this;
         }
 
-        public GameObjectsFromPrefabPool Build()
+        public GameObjectsFromPrefabPool Build(int maxSize = 20)
         {
+            _maxSize = maxSize;
             _pool ??= new ObjectPool<GameObject>(CreateFunc, ActionOnGet, ActionOnRelease,
-                ActionOnDestroy, true, 10, 20);
+                ActionOnDestroy, true, 10, _maxSize);
 
             return this;
         }
@@ -56,19 +58,22 @@ namespace ObjectPool
             return label;
         }
 
-        private static void ActionOnGet(GameObject obj)
+        private void ActionOnGet(GameObject obj)
         {
+            Debug.Log("[GameObjectPool.ActionOnGet]");
             obj.SetActive(true);
         }
 
-        private static void ActionOnRelease(GameObject obj)
+        private void ActionOnRelease(GameObject obj)
         {
+            Debug.Log("[GameObjectPool.ActionOnRelease]");
             obj.SetActive(false);
             obj.name = _defaultName;
         }
 
-        private static void ActionOnDestroy(GameObject obj)
+        private void ActionOnDestroy(GameObject obj)
         {
+            Debug.Log("[GameObjectPool.ActionOnDestroy]");
             GameObject.Destroy(obj);
         }
     }

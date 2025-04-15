@@ -14,6 +14,7 @@ namespace MapSystem
 
         // 2. These variables are to hold the Action references
         InputAction moveAction;
+        InputAction resetAction;
 
         private int startingX;
         private int startingY;
@@ -27,6 +28,7 @@ namespace MapSystem
         {
             // 3. Find the references to the "Move" and "Jump" actions
             moveAction = InputSystem.actions.FindAction("Move");
+            resetAction = InputSystem.actions.FindAction("Reset");
 
             tileDownloader = tile.GetComponent<TileDownloader>();
             Assert.IsNotNull(tileDownloader);
@@ -44,7 +46,7 @@ namespace MapSystem
 
         private void Update()
         {
-            if (Input.GetKey(KeyCode.R))
+            if (resetAction.IsPressed())
             {
                 tileDownloader.CoordX = startingX;
                 tileDownloader.CoordY = startingY;
@@ -65,22 +67,22 @@ namespace MapSystem
 
             Vector3 pos = tile.transform.position;
 
-            if (moveValue.x > 0 && tile.transform.position.x > startingSize.x / 2)
+            if (moveValue.x > 0 && tile.transform.position.x > startingSize.x/2)
             {
                 pos.x -= startingSize.x;
             }
-            else if (moveValue.x < 0 && tile.transform.position.x < startingSize.x / 2)
+            else if (moveValue.x < 0 && tile.transform.position.x < -startingSize.x/2)
             {
                 pos.x += startingSize.x;
             }
-
-            if (moveValue.y > 0 && tile.transform.position.z > startingSize.z / 2)
+            
+            if (moveValue.y > 0 && tile.transform.position.z > startingSize.z)
             {
-                pos.z -= startingSize.z;
+                pos.z -= startingSize.z * 2;
             }
-            else if (moveValue.y < 0 && tile.transform.position.z < startingSize.z / 2)
+            else if (moveValue.y < 0 && tile.transform.position.z < -startingSize.z)
             {
-                pos.z += startingSize.z;
+                pos.z += startingSize.z * 2;
             }
 
             if (pos.x != tile.transform.position.x || pos.z != tile.transform.position.z)

@@ -26,9 +26,6 @@ namespace ObjectPool
 
             Pool = pc.GetPool();
         }
-
-        
-        
         
         private void Update()
         {
