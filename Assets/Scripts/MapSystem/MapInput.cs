@@ -70,10 +70,12 @@ namespace MapSystem
             if (moveValue.x > 0 && tile.transform.position.x > startingSize.x/2)
             {
                 pos.x -= startingSize.x;
+                tileDownloader.CoordX--;
             }
             else if (moveValue.x < 0 && tile.transform.position.x < -startingSize.x/2)
             {
                 pos.x += startingSize.x;
+                tileDownloader.CoordX++;
             }
             
             if (moveValue.y > 0 && tile.transform.position.z > startingSize.z)
