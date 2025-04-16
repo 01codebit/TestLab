@@ -38,8 +38,6 @@ namespace ObjectPool
 #endif
         }
 
-        private int used = 0;
-
         [SerializeField] private bool test; 
         [SerializeField] private bool clear;
 
@@ -51,14 +49,12 @@ namespace ObjectPool
             // if (used != Pool.CountActive)
             // {
             Debug.Log($"[RackLabelsContainer] active: {Pool.CountActive}, inactive: {Pool.CountInactive}, all: {Pool.CountAll}");
-            //     used = Pool.CountActive;
             // }
 
             for (var i = 0; i < 10; i++)
             {
                 var x = Pool.Get();
-                x.name = $"TestObject #{used}";
-                used++;
+                x.name = $"TestObject #{Pool.CountActive}";
                 x.transform.position += Random.insideUnitSphere * 5;
                 
                 objects.Add(x);
@@ -74,9 +70,7 @@ namespace ObjectPool
                 Pool.Release(go);
             }
 
-            Pool.Clear();
             objects.Clear();
-            used = 0;
         }
         #endif
     }
