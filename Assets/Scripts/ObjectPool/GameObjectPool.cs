@@ -5,17 +5,16 @@ namespace ObjectPool
 {
     public class GameObjectsFromPrefabPool
     {
-        private GameObject _prefab;
-        private Transform _anchor;
-        private static string _defaultName;
-        private int _maxSize;
+        private readonly GameObject _prefab;
+        private readonly Transform _anchor;
+        private readonly string _defaultName;
         
-        private ObjectPool<GameObject> _pool;
+        private readonly ObjectPool<GameObject> _pool;
         
-        public GameObjectsFromPrefabPool(GameObject prefab, Transform transform, string defaultName, int maxSize = 20)
+        public GameObjectsFromPrefabPool(GameObject prefab, Transform anchor, string defaultName, int maxSize = 20)
         {
             _prefab = prefab;
-            _anchor = transform;
+            _anchor = anchor;
             _defaultName = defaultName;
 
             _pool ??= new ObjectPool<GameObject>(CreateFunc, ActionOnGet, ActionOnRelease,
