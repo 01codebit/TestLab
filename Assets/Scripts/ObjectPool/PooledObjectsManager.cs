@@ -13,16 +13,13 @@ namespace ObjectPool
     public class PooledObjectsManager : MonoBehaviour
     {
         [SerializeField] private GameObject _pooledPrefab;
+        [SerializeField] private int _maxSize = 20;
 
         private ObjectPool<GameObject> Pool { get; set; }
 
         private void Start()
         {
-            var pc = new GameObjectsFromPrefabPool()
-                .WithPrefab(_pooledPrefab)
-                .WithTransform(transform)
-                .WithDefaultName("TestObject")
-                .Build();
+            var pc = new GameObjectsFromPrefabPool(_pooledPrefab, transform, "TestObject", _maxSize);
 
             Pool = pc.GetPool();
         }
@@ -35,11 +32,15 @@ namespace ObjectPool
     
     if(clear) ClearPool();
     clear = false;
+
+    if(reset) Reset();
+    reset = false;
 #endif
         }
 
         [SerializeField] private bool test; 
         [SerializeField] private bool clear;
+        [SerializeField] private bool reset;
 
         private List<GameObject> objects = new List<GameObject>(); 
         
@@ -51,7 +52,9 @@ namespace ObjectPool
             Debug.Log($"[RackLabelsContainer] active: {Pool.CountActive}, inactive: {Pool.CountInactive}, all: {Pool.CountAll}");
             // }
 
-            for (var i = 0; i < 10; i++)
+            var count = Random.Range(5, 12);
+            
+            for (var i = 0; i < count; i++)
             {
                 var x = Pool.Get();
                 x.name = $"TestObject #{Pool.CountActive}";
@@ -62,7 +65,7 @@ namespace ObjectPool
         }
         #endif
         
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void ClearPool()
         {
             foreach (var go in objects)
@@ -72,6 +75,13 @@ namespace ObjectPool
 
             objects.Clear();
         }
-        #endif
+
+        private void Reset()
+        {
+            ClearPool();
+            objects.Clear();
+            Pool.Clear();
+        }
+#endif
     }
 }

@@ -12,43 +12,16 @@ namespace ObjectPool
         
         private ObjectPool<GameObject> _pool;
         
-        public ObjectPool<GameObject> Build(GameObject prefab, Transform transform, string defaultName)
+        public GameObjectsFromPrefabPool(GameObject prefab, Transform transform, string defaultName, int maxSize = 20)
         {
             _prefab = prefab;
             _anchor = transform;
             _defaultName = defaultName;
 
-            return _pool ??= new ObjectPool<GameObject>(CreateFunc, ActionOnGet, ActionOnRelease,
-                ActionOnDestroy, true, 10, 20);
-        }
-
-        public GameObjectsFromPrefabPool WithPrefab(GameObject prefab)
-        {
-            _prefab = prefab;
-            return this;
-        }
-
-        public GameObjectsFromPrefabPool WithTransform(Transform transform)
-        {
-            _anchor = transform;
-            return this;
-        }
-
-        public GameObjectsFromPrefabPool WithDefaultName(string defaultName)
-        {
-            _defaultName = defaultName;
-            return this;
-        }
-
-        public GameObjectsFromPrefabPool Build(int maxSize = 20)
-        {
-            _maxSize = maxSize;
             _pool ??= new ObjectPool<GameObject>(CreateFunc, ActionOnGet, ActionOnRelease,
-                ActionOnDestroy, true, 10, _maxSize);
-
-            return this;
+                ActionOnDestroy, true, 10, maxSize);
         }
-
+        
         public ObjectPool<GameObject> GetPool() => _pool;
         
         private GameObject CreateFunc()

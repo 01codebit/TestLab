@@ -165,6 +165,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pooledPrefab: {fileID: 603278154290564009, guid: 232b1ac61bc6bca4884068459e72b935,
     type: 3}
+  _maxSize: 10
+  test: 0
+  clear: 0
+  reset: 0
 --- !u!1 &420486704
 GameObject:
   m_ObjectHideFlags: 0
