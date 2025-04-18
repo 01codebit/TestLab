@@ -9,6 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/LabelsTestScene.unity
     guid: 94ab112220823b84493345f17823b377
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 9dfc0ee42512bc54a98478a5af3b9dfd,
+      type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: fcd0b0558e00ca2418569e81dd2ad11d,
       type: 3}
   m_UseUCBPForAssetBundles: 0
