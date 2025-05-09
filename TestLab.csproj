@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\WorldSpaceUIDocument.cs" />
     <Compile Include="Assets\Scripts\ImprovedTimers\CountdownTimerTest.cs" />
     <Compile Include="Assets\Scripts\CameraDebugger.cs" />
+    <Compile Include="Assets\Scripts\GameInitiator.cs" />
     <Compile Include="Assets\Scripts\ImprovedTimers\Timer.cs" />
     <Compile Include="Assets\Scripts\EventRaiser.cs" />
     <Compile Include="Assets\Scripts\Service\HttpService.cs" />
