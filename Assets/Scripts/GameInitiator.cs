@@ -4,12 +4,12 @@ using ImprovedTimers;
 
 public class GameInitiator : MonoBehaviour
 {
-    [SerializeField] private Camera _mainCameraPrefab;
-    [SerializeField] private Light _lightPrefab;
+    // [SerializeField] private Camera _mainCameraPrefab;
+    // [SerializeField] private Light _lightPrefab;
     [SerializeField] private CountdownTimerTest _timerTestPrefab;
 
-    private Camera _mainCamera;
-    private Light _light;
+    // private Camera _mainCamera;
+    // private Light _light;
     private CountdownTimerTest _timerTest;
 
 
@@ -20,8 +20,8 @@ public class GameInitiator : MonoBehaviour
 
     private void InitializeGame()
     {
-        _mainCamera = Instantiate(_mainCameraPrefab);
-        _light = Instantiate(_lightPrefab);
+        // _mainCamera = Instantiate(_mainCameraPrefab);
+        // _light = Instantiate(_lightPrefab);
         _timerTest = Instantiate(_timerTestPrefab);
     }
 }
