@@ -1,32 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Logging;
 using TestLab.EventChannel.Model;
 using Unity.Jobs;
 using UnityEngine;
 using Unity.Burst;
+using UnityEngine.EventSystems;
 
 namespace TestLab.EventChannel
 {
     [BurstCompile]
     public static class HttpService //: IJob
     {
+        private static bool initialized = false;
+
+        private static HttpRequestHeaders defaultRequestHeaders;
+        
+        private static void Initialize()
+        {
+            sharedClient = new HttpClient
+            {
+                BaseAddress = new Uri(baseUri)
+            };
+            
+            sharedClient.DefaultRequestHeaders.Add("", "");
+        }
+        
         // public void Execute()
         // {
 
         // }
+
         private const string baseUri = "https://jsonplaceholder.typicode.com"; 
         
         // HttpClient lifecycle management best practices:
         // https://learn.microsoft.com/dotnet/fundamentals/networking/http/httpclient-guidelines#recommended-use
         // ...BUT, Unity uses .NET Standard 2.1:
         // https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-net-http-httpclient
-        private static HttpClient sharedClient = new()
-        {
-            BaseAddress = new Uri(baseUri)
-        };
+        private static HttpClient sharedClient;
         
         public static async Task<string> GetAsync()
         {
@@ -58,7 +72,7 @@ namespace TestLab.EventChannel
             //var response = await sharedClient.GetAsync("todos?userId=1&completed=false");
             ConditionalLogger.Log($"XXX requestUri: {requestUri}");
             var response = await sharedClient.GetAsync(requestUri);
-
+            response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             
             var result = $"[GET] {baseUri}/{requestUri} [HTTP/1.1] responseBody: {responseBody}";

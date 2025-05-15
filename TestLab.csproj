@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Service\HttpService.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\BallGroupAuthoring.cs" />
     <Compile Include="Assets\Scripts\CameraMover.cs" />
+    <Compile Include="Assets\Scripts\Networking\NetworkTools.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\TestSystem.cs" />
     <Compile Include="Assets\Scripts\Service\HttpServiceTester.cs" />
     <Compile Include="Assets\Scripts\Service\JsonHelper.cs" />
@@ -941,6 +942,9 @@
     </Reference>
     <Reference Include="Unity.Mathematics.Extensions">
       <HintPath>C:\Users\lumas\UnityProjects\TestLab\Library\ScriptAssemblies\Unity.Mathematics.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>C:\Users\lumas\UnityProjects\TestLab\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:\Users\lumas\UnityProjects\TestLab\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>

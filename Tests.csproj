@@ -783,6 +783,9 @@
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:\Users\lumas\UnityProjects\TestLab\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>C:\Users\lumas\UnityProjects\TestLab\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:\Users\lumas\UnityProjects\TestLab\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
