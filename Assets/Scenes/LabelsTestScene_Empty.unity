@@ -130,37 +130,37 @@ PrefabInstance:
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.31
+      value: 15.309989
       objectReference: {fileID: 0}
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.7
+      value: -25.700003
       objectReference: {fileID: 0}
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9693306
+      value: 0.98131174
       objectReference: {fileID: 0}
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24576062
+      value: 0.19158116
       objectReference: {fileID: 0}
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.017665474
       objectReference: {fileID: 0}
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.0034489057
       objectReference: {fileID: 0}
     - target: {fileID: 466411615938659749, guid: 9062cf9989f21aa4ea91eee169c0278a,
         type: 3}
@@ -181,6 +181,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688820039400265428, guid: 9062cf9989f21aa4ea91eee169c0278a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -931,8 +936,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbc0848068e344449d6def86bfac6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timerTestPrefab: {fileID: 3124759418306867483, guid: 1d9e3ab1d90854c4d847f9d3b40ec1e8,
-    type: 3}
+  _disableNotMainCamerasAndLights: 1
+  _elements:
+  - _priority: 1
+    _description: TimerTest
+    _prefab: {fileID: 1477210963296771820, guid: 1d9e3ab1d90854c4d847f9d3b40ec1e8,
+      type: 3}
+  - _priority: 1
+    _description: Added Cube
+    _prefab: {fileID: 603278154290564009, guid: 232b1ac61bc6bca4884068459e72b935,
+      type: 3}
+  _additiveScenes:
+  - TestSceneAdditive
 --- !u!4 &1625682213
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,6 +1206,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Directional Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553157344442099864, guid: 810de4a1361e18b41a83ce980020faae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3553157344442099864, guid: 810de4a1361e18b41a83ce980020faae,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainLight
       objectReference: {fileID: 0}
     - target: {fileID: 8209468010325882258, guid: 810de4a1361e18b41a83ce980020faae,
         type: 3}

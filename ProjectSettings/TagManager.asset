@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Floor
+  - MainLight
   layers:
   - Default
   - TransparentFX

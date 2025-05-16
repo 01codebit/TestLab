@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Service\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\LabelSpawner.cs" />
     <Compile Include="Assets\Scripts\ImprovedTimers\TimerEngine.cs" />
+    <Compile Include="Assets\Scripts\GameElement.cs" />
     <Compile Include="Assets\Scripts\SingletonTest.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\NotDotsBallSpawner.cs" />
     <Compile Include="Assets\Scripts\TestDrawLineScript.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\Scripts\SingletonTestClient.cs" />
     <Compile Include="Assets\Scripts\Object2DLabel.cs" />
     <Compile Include="Assets\Scripts\View\GameObjectPool.cs" />
+    <Compile Include="Assets\Scripts\GameElementDrawer.cs" />
     <Compile Include="Assets\Scripts\EventListener.cs" />
     <Compile Include="Assets\Scripts\VisibilityChecker.cs" />
     <Compile Include="Assets\Scripts\Channels\VoidEventChannelSO.cs" />
