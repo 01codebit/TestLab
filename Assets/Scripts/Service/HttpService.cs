@@ -10,6 +10,7 @@ using UnityEngine;
 using Unity.Burst;
 using UnityEngine.EventSystems;
 
+
 namespace TestLab.EventChannel
 {
     [BurstCompile]
@@ -82,7 +83,7 @@ namespace TestLab.EventChannel
             {
                 // la response è un json array
             
-                responseBody = HttpUtils.FixJson(responseBody);
+                // responseBody = HttpUtils.FixJson(responseBody);
                 var listFromServer = JsonUtility.FromJson<ListWrapper<T>>(responseBody);
                 
                 // update model data structure

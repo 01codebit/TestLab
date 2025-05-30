@@ -94,4 +94,9 @@ public class GameInitiator : MonoBehaviour
 
         return new Tuple<int, int>(disabledCams, disabledLights);
     }
+
+    private void OnDisable()
+    {
+        Debug.Log("[GameInitiator.OnDisable]");
+    }
 }

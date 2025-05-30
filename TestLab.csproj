@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\MapSystem\MapInput.cs" />
     <Compile Include="Assets\Scripts\MinimalTimer.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjectTypes\StringListSO.cs" />
     <Compile Include="Assets\Scripts\Model\DataStructure.cs" />
     <Compile Include="Assets\Scripts\Service\HttpUtils.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\PooledObjectsManager.cs" />
@@ -78,10 +79,12 @@
     <Compile Include="Assets\Scripts\GameInitiator.cs" />
     <Compile Include="Assets\Scripts\ImprovedTimers\Timer.cs" />
     <Compile Include="Assets\Scripts\EventRaiser.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjectTypes\FloatSO.cs" />
     <Compile Include="Assets\Scripts\Service\HttpService.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\BallGroupAuthoring.cs" />
     <Compile Include="Assets\Scripts\CameraMover.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkTools.cs" />
+    <Compile Include="Assets\Scripts\StatusTest\StatusSO.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\TestSystem.cs" />
     <Compile Include="Assets\Scripts\Service\HttpServiceTester.cs" />
     <Compile Include="Assets\Scripts\Service\JsonHelper.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Assets\Scripts\Model\Todo.cs" />
     <Compile Include="Assets\Scripts\Logging.cs" />
     <Compile Include="Assets\Scripts\Model\ListWrapper.cs" />
+    <Compile Include="Assets\Scripts\TestAnagrafica.cs" />
     <Compile Include="Assets\Scripts\DI_Test\DIControllerWithoutZenject.cs" />
     <Compile Include="Assets\Scripts\View\DataView.cs" />
     <Compile Include="Assets\Scripts\ExamplePerlinNoise.cs" />
