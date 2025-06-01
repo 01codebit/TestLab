@@ -22,12 +22,16 @@ namespace TestLab.EventChannel
         
         private static void Initialize()
         {
+            if (initialized) return;
+            
             sharedClient = new HttpClient
             {
                 BaseAddress = new Uri(baseUri)
             };
             
-            sharedClient.DefaultRequestHeaders.Add("", "");
+            // sharedClient.DefaultRequestHeaders.Add("", "");
+
+            initialized = true;
         }
         
         // public void Execute()
@@ -67,11 +71,17 @@ namespace TestLab.EventChannel
         
         public static async Task GetFromJsonAsync<T>(string endpoint, Dictionary<string, string> parameters, DataStructure<T> dataStructure=null)
         {
+            Initialize();
+            if (sharedClient == null)
+            {
+                throw new InvalidOperationException("HttpClient is not initialized. Call Initialize() first.");
+            }
+
             if (string.IsNullOrEmpty(endpoint)) return;
             var requestUri = HttpUtils.GetRequestUri(endpoint, parameters);
             
             //var response = await sharedClient.GetAsync("todos?userId=1&completed=false");
-            ConditionalLogger.Log($"XXX requestUri: {requestUri}");
+            ConditionalLogger.Log($"XXX requestUri: {requestUri.ToString()}");
             var response = await sharedClient.GetAsync(requestUri);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
@@ -83,7 +93,7 @@ namespace TestLab.EventChannel
             {
                 // la response è un json array
             
-                // responseBody = HttpUtils.FixJson(responseBody);
+                responseBody = HttpUtils.FixJson(responseBody);
                 var listFromServer = JsonUtility.FromJson<ListWrapper<T>>(responseBody);
                 
                 // update model data structure

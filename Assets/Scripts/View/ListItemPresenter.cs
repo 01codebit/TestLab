@@ -18,6 +18,8 @@ namespace TestLab.EventChannel.View
         [SerializeField] private Transform _anchor;
         [SerializeField] private TextMeshProUGUI _countLabel;
 
+        [SerializeField] private TodoListSO _todoListSO;
+
         private GameObjectPool _gameObjectPool;
         private long _lastLoadingTime;
         
@@ -59,17 +61,25 @@ namespace TestLab.EventChannel.View
             //     cc.Dispose();
             // }
             _gameObjectPool.Clear();
-            
-            var data = _model.Data;
+
+            List<Todo> data;
+            if (_todoListSO != null)
+            {
+                data = _todoListSO.Items;
+            }
+            else {
+                data = _model.Data;
+            }
+
             // _poolManager?.SetItemList(data);
 
-            foreach (var todo in data)
-            {
-                var item = _gameObjectPool.GetAnchoredObject(_anchor);
-                item.name = todo.userId + "_" + todo.id;
-                var dataView = item.GetComponent<DataView>();
-                dataView.Bind(todo, _gameObjectPool.GetPool(), _model);
-            }
+                foreach (var todo in data)
+                {
+                    var item = _gameObjectPool.GetAnchoredObject(_anchor);
+                    item.name = todo.userId + "_" + todo.id;
+                    var dataView = item.GetComponent<DataView>();
+                    dataView.Bind(todo, _gameObjectPool.GetPool(), _model);
+                }
             ConditionalLogger.Log($"[ListItemPresenter.HandleReload] (after) {_gameObjectPool.Stats()}");
             _countLabel.text = $"Count: {data.Count} ({_lastLoadingTime}ms)";
         }
@@ -83,6 +93,12 @@ namespace TestLab.EventChannel.View
             sw.Start();
             // ConditionalLogger.Log("[ListItemPresenter.LoadData] start");
             await HttpService.GetFromJsonAsync<Todo>(_endpoint, _parameters, _model);
+
+            if(_todoListSO!=null)
+            {
+                _todoListSO.Items = _model.Data;
+            }
+
             sw.Stop();
             _lastLoadingTime = sw.ElapsedMilliseconds;
             // ConditionalLogger.Log($"[ListItemPresenter.LoadData] end ({_lastLoadingTime}ms) result: {result}");

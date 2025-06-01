@@ -14,9 +14,9 @@ public class TestDrawLineScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            Debug.DrawLine(_rectStart.position, _rectEnd.position, Color.red, 3.0f);
-        }
+        // if (Input.GetKey(KeyCode.LeftControl))
+        // {
+        //     Debug.DrawLine(_rectStart.position, _rectEnd.position, Color.red, 3.0f);
+        // }
     }
 }

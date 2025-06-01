@@ -2004,6 +2004,7 @@ MonoBehaviour:
     type: 3}
   _anchor: {fileID: 1400434526}
   _countLabel: {fileID: 2005616101}
+  _todoListSO: {fileID: 11400000, guid: 270a97f1397307f43ba273883fe12054, type: 2}
 --- !u!1 &2005616099
 GameObject:
   m_ObjectHideFlags: 0

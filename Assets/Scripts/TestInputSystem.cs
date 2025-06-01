@@ -23,6 +23,7 @@ namespace TestLab.EventChannel
         InputAction clickAction;
         bool clickingEnabled = true;
 
+        InputAction resetAction;
         private Vector3 initialPosition;
         private Vector3 initialForward;
         private Quaternion initialRotation;
@@ -45,6 +46,7 @@ namespace TestLab.EventChannel
             sprintAction = InputSystem.actions.FindAction("Sprint");
             jumpAction = InputSystem.actions.FindAction("Jump");
             clickAction = InputSystem.actions.FindAction("Click");
+            resetAction = InputSystem.actions.FindAction("Reset");
 
             gameObjectPool = new GameObjectPool(itemPrefab);
         }
@@ -53,7 +55,7 @@ namespace TestLab.EventChannel
         
         private void Update()
         {
-            if (Input.GetKey(KeyCode.R))
+            if (resetAction.IsPressed())
             {
                 transform.position = initialPosition;
                 transform.rotation = initialRotation;
@@ -86,9 +88,12 @@ namespace TestLab.EventChannel
                 clickingEnabled = false;
 
                 RaycastHit hit;
-                Debug.Log($"Input.mousePosition: {Input.mousePosition}");
 
-                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                // get the mouse position in screen coordinates using the new Input System
+                Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+                Debug.Log($"Mouse.current.position: {mouseScreenPosition}");                
+                // create a ray from the camera to the mouse position
+                Ray ray = mainCamera.ScreenPointToRay(mouseScreenPosition);
 
                 Debug.Log($"forward: {transform.forward}");
 

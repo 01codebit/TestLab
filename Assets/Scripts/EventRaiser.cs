@@ -1,5 +1,6 @@
 ﻿using Logging;
 using UnityEngine;
+using UnityEngine.InputSystem; // 1. The Input System "using" statement
 
 namespace TestLab.EventChannel
 {
@@ -13,19 +14,32 @@ namespace TestLab.EventChannel
         public bool TestRaiseNetworkEvent = false;
         public int TestRaiseIntEventArg = 0;
         
+        // 2. These variables are to hold the Action references
+        InputAction enterAction;
+        InputAction numpad0Action;
+        InputAction numpad1Action;
+
+        void Start()
+        {
+            enterAction = InputSystem.actions.FindAction("Test_Enter");
+            numpad0Action = InputSystem.actions.FindAction("Test_Numpad_0");
+            numpad1Action = InputSystem.actions.FindAction("Test_Numpad_1");
+        }
+
+
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            if (enterAction.IsPressed())
             {
                 TriggerVoidEvent();
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad0))
+            if (numpad0Action.IsPressed())
             {
                 TriggerIntEvent(0);
             }
 
-            if (Input.GetKeyDown(KeyCode.Keypad1))
+            if (numpad1Action.IsPressed())
             {
                 TriggerIntEvent(1);
             }
