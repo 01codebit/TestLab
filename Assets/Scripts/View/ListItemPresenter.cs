@@ -35,14 +35,24 @@ namespace TestLab.EventChannel.View
 
         private void OnEnable()
         {
-            _model.OnDataReloaded += HandleReload;
+            // _model.OnDataReloaded += HandleReload;
             _networkEventChannel.OnEventRaised += LoadData;
+
+            if (_todoListSO != null)
+            {
+                _todoListSO.OnDataChange += HandleReload;
+            }
         }
 
         private void OnDisable()
         {
-            _model.OnDataReloaded -= HandleReload;
+            // _model.OnDataReloaded -= HandleReload;
             _networkEventChannel.OnEventRaised -= LoadData;
+
+            if (_todoListSO != null)
+            {
+                _todoListSO.OnDataChange -= HandleReload;
+            }
         }
 
         private void Start()
@@ -96,7 +106,7 @@ namespace TestLab.EventChannel.View
 
             if(_todoListSO!=null)
             {
-                _todoListSO.Items = _model.Data;
+                _todoListSO.SetItems(_model.Data);
             }
 
             sw.Stop();

@@ -12,40 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614a7a6f86366ed41b159525d801a244, type: 3}
   m_Name: TodoListSO
   m_EditorClassIdentifier: 
-  Items:
-  - userId: 1
-    id: 1
-    title: delectus aut autem
-    completed: 0
-  - userId: 1
-    id: 2
-    title: quis ut nam facilis et officia qui
-    completed: 0
-  - userId: 1
-    id: 3
-    title: fugiat veniam minus
-    completed: 0
-  - userId: 1
-    id: 5
-    title: laboriosam mollitia et enim quasi adipisci quia provident illum
-    completed: 0
-  - userId: 1
-    id: 6
-    title: qui ullam ratione quibusdam voluptatem quia omnis
-    completed: 0
-  - userId: 1
-    id: 7
-    title: illo expedita consequatur quia in
-    completed: 0
-  - userId: 1
-    id: 9
-    title: molestiae perspiciatis ipsa
-    completed: 0
-  - userId: 1
-    id: 13
-    title: et doloremque nulla
-    completed: 0
-  - userId: 1
-    id: 18
-    title: dolorum est consequatur ea mollitia in culpa
-    completed: 0
+  Items: []
