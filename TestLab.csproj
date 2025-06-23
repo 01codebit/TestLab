@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\MapSystem\MapInput.cs" />
     <Compile Include="Assets\Scripts\MinimalTimer.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjectTypes\StringListSO.cs" />
+    <Compile Include="Assets\Scripts\SmartLog\SmartLog.cs" />
     <Compile Include="Assets\Scripts\Model\DataStructure.cs" />
     <Compile Include="Assets\Scripts\Service\HttpUtils.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjectTypes\GenericListSO.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\View\PoolManager.cs" />
     <Compile Include="Assets\Scripts\ImprovedTimers\TimerManager.cs" />
     <Compile Include="Assets\Scripts\TestInputSettingsSO.cs" />
+    <Compile Include="Assets\Scripts\SmartLog\ILogger.cs" />
     <Compile Include="Assets\Scripts\WorldSpaceUIDocument.cs" />
     <Compile Include="Assets\Scripts\ImprovedTimers\CountdownTimerTest.cs" />
     <Compile Include="Assets\Scripts\CameraDebugger.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Assets\Scripts\DI_Test\DIControllerWithoutZenject.cs" />
     <Compile Include="Assets\Scripts\View\DataView.cs" />
     <Compile Include="Assets\Scripts\ExamplePerlinNoise.cs" />
+    <Compile Include="Assets\Scripts\SmartLog\UnityLogger.cs" />
     <Compile Include="Assets\Scripts\UI\UILabelBinder.cs" />
     <Compile Include="Assets\Scripts\TestInputSystem.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\BallAuthoring.cs" />
