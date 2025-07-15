@@ -1,5 +1,4 @@
-﻿using Logging;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Pool;
 
 namespace TestLab.EventChannel.View
@@ -13,7 +12,7 @@ namespace TestLab.EventChannel.View
         int maxSize;
 
         // Our class's constructor. Takes the prefab to spawn as an argument.
-        public GameObjectPool(GameObject prefab, int defaultSize = 20, int maxSize = 100)
+        public GameObjectPool(GameObject prefab, int defaultSize = 10, int maxSize = 100)
         {
             this.prefab = prefab; // The prefab to spawn.
             this.defaultSize = defaultSize; // Pool's starting number of objects.
@@ -68,7 +67,7 @@ namespace TestLab.EventChannel.View
         private GameObject CreatePooledObject()
         {
             GameObject newObject = GameObject.Instantiate(prefab);
-            ConditionalLogger.Log("[GameObjectPool.CreatePooledObject] GameObject instantiated");
+            // ConditionalLogger.Log("[GameObjectPool.CreatePooledObject] GameObject instantiated");
             return newObject;
         }
 
@@ -76,21 +75,21 @@ namespace TestLab.EventChannel.View
         private void OnGetFromPool(GameObject pooledObject)
         {
             pooledObject.SetActive(true);
-            ConditionalLogger.Log("[GameObjectPool.OnGetFromPool] GameObject reactivated");
+            // ConditionalLogger.Log("[GameObjectPool.OnGetFromPool] GameObject reactivated");
         }
 
         // When an object is returned to the pool, deactivate it.
         private void OnReturnToPool(GameObject pooledObject)
         {
             pooledObject.SetActive(false);
-            ConditionalLogger.Log("[GameObjectPool.OnReturnToPool] GameObject activated");
+            // ConditionalLogger.Log("[GameObjectPool.OnReturnToPool] GameObject activated");
         }
 
         // When the pool discards an object, destroy the GameObject.
         private void OnDestroyPooledObject(GameObject pooledObject)
         {
-            GameObject.Destroy(pooledObject);
-            ConditionalLogger.Log("[GameObjectPool.OnDestroyPooledObject] GameObject destroyed");
+            GameObject.DestroyImmediate(pooledObject);
+            // ConditionalLogger.Log("[GameObjectPool.OnDestroyPooledObject] GameObject destroyed");
         }
 
         public void Clear()

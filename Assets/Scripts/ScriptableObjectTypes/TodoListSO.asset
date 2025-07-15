@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: TodoListSO
   m_EditorClassIdentifier: 
   Items: []
+  _revert: 1

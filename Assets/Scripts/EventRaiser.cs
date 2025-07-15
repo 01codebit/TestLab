@@ -1,4 +1,5 @@
-﻿using Logging;
+﻿using Channels;
+using Logging;
 using UnityEngine;
 using UnityEngine.InputSystem; // 1. The Input System "using" statement
 

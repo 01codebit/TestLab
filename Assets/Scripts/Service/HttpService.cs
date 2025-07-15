@@ -71,7 +71,8 @@ namespace TestLab.EventChannel
         
         public static async Task GetFromJsonAsync<T>(string endpoint, Dictionary<string, string> parameters, DataStructure<T> dataStructure=null)
         {
-            Initialize();
+            if(!initialized) Initialize();
+
             if (sharedClient == null)
             {
                 throw new InvalidOperationException("HttpClient is not initialized. Call Initialize() first.");
@@ -81,7 +82,7 @@ namespace TestLab.EventChannel
             var requestUri = HttpUtils.GetRequestUri(endpoint, parameters);
             
             //var response = await sharedClient.GetAsync("todos?userId=1&completed=false");
-            ConditionalLogger.Log($"XXX requestUri: {requestUri.ToString()}");
+            ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] requestUri: {requestUri.ToString()}");
             var response = await sharedClient.GetAsync(requestUri);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
@@ -127,6 +128,50 @@ namespace TestLab.EventChannel
             //   Todo { UserId = 1, Id = 9, Title = molestiae perspiciatis ipsa, Completed = False }
             //   Todo { UserId = 1, Id = 13, Title = et doloremque nulla, Completed = False }
             //   Todo { UserId = 1, Id = 18, Title = dolorum est consequatur ea mollitia in culpa, Completed = False }
+        }
+
+        public static async Task<List<T>> GetFromJsonAsync<T>(string endpoint, Dictionary<string, string> parameters)
+        {
+            if(!initialized) Initialize();
+            
+            if (sharedClient == null)
+            {
+                throw new InvalidOperationException("HttpClient is not initialized. Call Initialize() first.");
+            }
+
+            if (string.IsNullOrEmpty(endpoint))
+            {
+                throw new InvalidOperationException("endpoint can't be null or empty.");
+            }
+
+            var data = new List<T>();
+
+            var requestUri = HttpUtils.GetRequestUri(endpoint, parameters);
+            
+            //var response = await sharedClient.GetAsync("todos?userId=1&completed=false");
+            ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] requestUri: {requestUri.ToString()}");
+            var response = await sharedClient.GetAsync(requestUri);
+            response.EnsureSuccessStatusCode();
+            var responseBody = await response.Content.ReadAsStringAsync();
+            
+            var result = $"[GET] {baseUri}/{requestUri} [HTTP/1.1] responseBody: {responseBody}";
+            ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] {result}");
+            
+            if (responseBody.StartsWith('['))
+            {
+                // la response è un json array
+                responseBody = HttpUtils.FixJson(responseBody);
+                var listFromServer = JsonUtility.FromJson<ListWrapper<T>>(responseBody);
+                data.AddRange(listFromServer.Items);
+            }
+            else
+            {
+                // la response è un singolo json object
+                var objectFromServer = JsonUtility.FromJson<T>(responseBody);
+                data.Add(objectFromServer);
+            }
+
+            return data;
         }
     }
 }

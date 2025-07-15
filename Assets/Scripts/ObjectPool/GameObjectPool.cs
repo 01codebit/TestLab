@@ -46,7 +46,7 @@ namespace ObjectPool
         private void ActionOnDestroy(GameObject obj)
         {
             Debug.Log("[GameObjectPool.ActionOnDestroy]");
-            GameObject.Destroy(obj);
+            GameObject.DestroyImmediate(obj);
         }
     }
 }

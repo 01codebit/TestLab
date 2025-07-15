@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Channels;
 using Logging;
 using TestLab.EventChannel.Model;
@@ -9,7 +10,7 @@ using Debug = UnityEngine.Debug;
 
 namespace TestLab.EventChannel.View
 {
-    public class ListItemPresenter : MonoBehaviour
+    public class ListItemPresenterSOAP : MonoBehaviour
     {
         // vista
         // [SerializeField] private PoolManager _poolManager;
@@ -24,9 +25,6 @@ namespace TestLab.EventChannel.View
         private GameObjectPool _gameObjectPool;
         private long _lastLoadingTime;
         
-        // modello
-        private DataStructure<Todo> _model = new DataStructure<Todo>();
-        
         private static string _endpoint = "todos";
         private static Dictionary<string, string> _parameters = new Dictionary<string, string>()
         {
@@ -36,23 +34,25 @@ namespace TestLab.EventChannel.View
 
         private void OnEnable()
         {
-            // _model.OnDataReloaded += HandleReload;
-            _networkEventChannel.OnEventRaised += LoadData;
+            _networkEventChannel.OnEventRaisedAsync += LoadData;
 
             if (_todoListSO != null)
             {
                 _todoListSO.OnDataChange += HandleReload;
+                _todoListSO.OnDataClear += HandleClear;
             }
         }
 
         private void OnDisable()
         {
-            // _model.OnDataReloaded -= HandleReload;
-            _networkEventChannel.OnEventRaised -= LoadData;
+            _networkEventChannel.OnEventRaisedAsync -= LoadData;
 
             if (_todoListSO != null)
             {
                 _todoListSO.OnDataChange -= HandleReload;
+                _todoListSO.OnDataClear -= HandleClear;
+                
+                _todoListSO.ClearItems();
             }
         }
 
@@ -62,52 +62,44 @@ namespace TestLab.EventChannel.View
             // LoadData();
         }
 
+
+        private List<TodoDataSimpleView> _itemViews = new List<TodoDataSimpleView>();
+        
         private void HandleReload()
         {
-            // ConditionalLogger.Log("[ListItemPresenter.HandleReload]");
             ConditionalLogger.Log($"[ListItemPresenter.HandleReload] (before) {_gameObjectPool.Stats()}");
+            
+            HandleClear();
+            //_gameObjectPool.Clear();
 
-            // foreach (var cc in _anchor.GetComponentsInChildren<TodoDataView>())
-            // {
-            //     cc.Dispose();
-            // }
-            _gameObjectPool.Clear();
+            if (_todoListSO == null) return;
 
-            List<Todo> data;
-            if (_todoListSO != null)
+            List<Todo> data = _todoListSO.Items;
+
+
+            foreach (var todo in data)
             {
-                data = _todoListSO.Items;
-            }
-            else {
-                data = _model.Data;
+                var item = _gameObjectPool.GetAnchoredObject(_anchor);
+                item.name = todo.userId + "_" + todo.id;
+                var dataView = item.GetComponent<TodoDataSimpleView>();
+                dataView.Bind(todo, _gameObjectPool.GetPool());
+                _itemViews.Add(dataView);
             }
 
-            // _poolManager?.SetItemList(data);
-
-                foreach (var todo in data)
-                {
-                    var item = _gameObjectPool.GetAnchoredObject(_anchor);
-                    item.name = todo.userId + "_" + todo.id;
-                    var dataView = item.GetComponent<DataView>();
-                    dataView.Bind(todo, _gameObjectPool.GetPool(), _model);
-                }
             ConditionalLogger.Log($"[ListItemPresenter.HandleReload] (after) {_gameObjectPool.Stats()}");
             _countLabel.text = $"Count: {data.Count} ({_lastLoadingTime}ms)";
         }
         
-        private async void LoadData()
+        private async Task LoadData()
         {
-            _model.ResetData();
-            // _poolManager.Clear();
-            
             var sw = new Stopwatch();
             sw.Start();
             ConditionalLogger.Log("[ListItemPresenter.LoadData] start");
-            await HttpService.GetFromJsonAsync(_endpoint, _parameters, _model);
+            var todos = await HttpService.GetFromJsonAsync<Todo>(_endpoint, _parameters);
 
             if(_todoListSO!=null)
             {
-                _todoListSO.SetItems(_model.Data);
+                _todoListSO.SetItems(todos);
             }
 
             sw.Stop();
@@ -119,6 +111,15 @@ namespace TestLab.EventChannel.View
         public void ReleaseItem(GameObject go)
         {
             _gameObjectPool.ReleaseObject(go);
+        }
+
+        private void HandleClear()
+        {
+            for (int i = _itemViews.Count; i > 0; i--)
+            {
+                _itemViews[i - 1].Dispose();
+            }
+            _itemViews.Clear();
         }
     }
 }

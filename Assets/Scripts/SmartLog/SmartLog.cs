@@ -28,7 +28,7 @@ namespace SmartLog
         {
             logger.Log("Doing something in SmartLog.");
             logger.LogWarning("Test Warning in SmartLog.");
-            logger.LogError("Test Error in SmartLog.");
+            // logger.LogError("Test Error in SmartLog.");
         }
     }
 }

@@ -2,7 +2,7 @@
 using Logging;
 using UnityEngine;
 
-namespace TestLab.EventChannel
+namespace Channels
 {
     [CreateAssetMenu(menuName = "Events/Handle Event", fileName = "HandleEvent")]
     public class HandleEventSO : ScriptableObject

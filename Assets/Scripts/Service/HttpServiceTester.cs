@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using Channels;
 using Logging;
 using TestLab.EventChannel.Model;
 using UnityEngine;
