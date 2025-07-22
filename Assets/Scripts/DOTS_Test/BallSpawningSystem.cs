@@ -5,6 +5,8 @@ using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace DOTSTest
 {
@@ -15,15 +17,17 @@ namespace DOTSTest
         private EntityQuery _ballQuery;
         public void OnCreate(ref SystemState state)
         {
+            Debug.Log("[XXX][BallSpawningSystem.OnCreate]");
             _ballQuery = new EntityQueryBuilder(Allocator.Temp).WithAll<Ball, LocalTransform>().Build(ref state);
         }
 
         public void OnUpdate(ref SystemState state)
         {
+            Debug.Log("[XXX][BallSpawningSystem.OnUpdate]");
             var localToWorldLookup = SystemAPI.GetComponentLookup<LocalToWorld>();
             var ecb = new EntityCommandBuffer(Allocator.Temp);
             var world = state.World.Unmanaged;
-
+            
             foreach (var (ballGroup, ballGroupLocalToWorld, entity) in
                      SystemAPI.Query<RefRO<BallGroup>, RefRO<LocalToWorld>>()
                          .WithEntityAccess())

@@ -12,6 +12,7 @@ namespace DOTSTest
         {
             public override void Bake(BallAuthoring authoring)
             {
+                Debug.Log("[XXX][BallAuthoring.Baker.Bake]");
                 var entity = GetEntity(TransformUsageFlags.Renderable | TransformUsageFlags.WorldSpace);
                 AddSharedComponent(entity, new Ball
                 {
