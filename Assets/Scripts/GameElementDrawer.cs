@@ -1,5 +1,6 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 /*
@@ -34,6 +35,7 @@ public class GameElementDrawer : PropertyDrawer
     }
 }
 */
+
 [CustomEditor(typeof(GameElement))]
 [CanEditMultipleObjects]
 public class GameElementEditor : Editor 
@@ -74,3 +76,5 @@ public class SceneEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+
+#endif

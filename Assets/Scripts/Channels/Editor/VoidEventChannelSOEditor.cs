@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -19,3 +21,5 @@ namespace Channels.Editor
         }
     }
 }
+
+#endif
