@@ -6,7 +6,6 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 namespace DOTSTest
 {
@@ -32,7 +31,7 @@ namespace DOTSTest
                      SystemAPI.Query<RefRO<BallGroup>, RefRO<LocalToWorld>>()
                          .WithEntityAccess())
             {
-                int totalBalls = ballGroup.ValueRO.Columns * ballGroup.ValueRO.Rows;
+                var totalBalls = ballGroup.ValueRO.Columns * ballGroup.ValueRO.Rows;
 
                 var ballEntities =
                     CollectionHelper.CreateNativeArray<Entity, RewindableAllocator>(totalBalls, ref world.UpdateAllocator);
@@ -51,6 +50,14 @@ namespace DOTSTest
                 state.Dependency = setBallLocalToWorldJob.Schedule(totalBalls, 64, state.Dependency);
                 state.Dependency.Complete();
 
+                // var setColorJob = new SetColor()
+                // {
+                //     Entities = ballEntities,
+                // };
+                //
+                // state.Dependency = setColorJob.Schedule(totalBalls, 64, state.Dependency);
+                // state.Dependency.Complete();
+                
                 ecb.DestroyEntity(entity);
             }
 
@@ -76,15 +83,48 @@ namespace DOTSTest
         public void Execute(int i)
         {
             var entity = Entities[i];
-            var random = new Random(((uint)(entity.Index + i + 1) * 0x9F6ABC1));
+            var random = new Unity.Mathematics.Random(((uint)(entity.Index + i + 1) * 0x9F6ABC1));
             var dir = math.normalizesafe(random.NextFloat3() - new float3(0.5f, 0.5f, 0.5f));
             float3 origin = new float3(Center.x - Columns/2, 1.0f, Center.z - Rows/2);
-            var pos = new float3(origin.x + i%Columns, origin.y, origin.z + i/Columns);
+            var pos = new float3(origin.x + i%Columns, origin.y, origin.z + i/Columns) * 5;
+
+            var random2 = new Unity.Mathematics.Random(((uint)(entity.Index + i + 1) * 0x9F6ABC1)).NextFloat() + 0.5f;
+            var newScale = new Vector3(random2, random2, random2);
+            
             var localToWorld = new LocalToWorld
             {
-                Value = float4x4.TRS(pos, quaternion.LookRotationSafe(dir, math.up()), new float3(1.0f, 1.0f, 1.0f))
+                Value = float4x4.TRS(pos, quaternion.LookRotationSafe(dir, math.up()), newScale)
             };
             LocalToWorldFromEntity[entity] = localToWorld;
+        }
+    }
+
+    [BurstCompile]
+    struct SetColor : IJobParallelFor
+    {
+        [NativeDisableContainerSafetyRestriction]
+        [NativeDisableParallelForRestriction]
+        public ComponentLookup<MyOwnColor> MyOwnColorEntity;
+
+        public NativeArray<Entity> Entities;
+
+        public void Execute(int i)
+        {
+            var entity = Entities[i];
+            var random = new Unity.Mathematics.Random(((uint)(entity.Index + i + 1) * 0x9F6ABC1));
+            var dir = math.normalizesafe(random.NextFloat3() - new float3(0.5f, 0.5f, 0.5f));
+
+            var t = Time.deltaTime;
+            
+            var myOwnColor = new MyOwnColor
+            {
+                Value = new float4(
+                    math.cos(t + 1.0f),
+                    math.cos(t + 2.0f),
+                    math.cos(t + 3.0f),
+                    1.0f)
+            };
+            MyOwnColorEntity[entity] = myOwnColor;
         }
     }
 }

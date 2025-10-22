@@ -58,6 +58,7 @@
     <Analyzer Include="C:\Users\lumas\UnityProjects\TestLab\Library\PackageCache\com.unity.entities@e581b903be8e\Unity.Entities\SourceGenerators\Unity.Entities.Analyzer.CodeFixes.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Tests\PropertyNewSyntaxExample.cs" />
     <Compile Include="Assets\Scripts\Tests\NewTestScript.cs" />
     <None Include="Assets\Scripts\Tests\Tests.asmdef" />
     <Reference Include="UnityEngine">

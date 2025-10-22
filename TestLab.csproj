@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\CameraMover.cs" />
     <Compile Include="Assets\Scripts\Networking\NetworkTools.cs" />
     <Compile Include="Assets\Scripts\StatusTest\StatusSO.cs" />
+    <Compile Include="Assets\Scripts\DOTS_Test\RainbowMeshSystem.cs" />
     <Compile Include="Assets\Scripts\DOTS_Test\TestSystem.cs" />
     <Compile Include="Assets\Scripts\Service\HttpServiceTester.cs" />
     <Compile Include="Assets\Scripts\Service\JsonHelper.cs" />

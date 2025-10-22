@@ -102,5 +102,6 @@ EditorBuildSettings:
     path: Assets/UnityTechnologies/LevelUpYourCode/_DesignPatterns/10_DirtyFlag/SubScenes/Sector3-3.unity
     guid: 43252bf20bf06bd49b7ed3934ce30855
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 0dfcb80bb51c35a4c9413288a2a73931, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: ccfb5cb2f44683945bb38f6420f80a3b, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
