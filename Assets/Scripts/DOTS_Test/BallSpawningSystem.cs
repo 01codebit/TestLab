@@ -84,7 +84,7 @@ namespace DOTSTest
         {
             var entity = Entities[i];
             var random = new Unity.Mathematics.Random(((uint)(entity.Index + i + 1) * 0x9F6ABC1));
-            var dir = math.normalizesafe(random.NextFloat3() - new float3(0.5f, 0.5f, 0.5f));
+            var dir = math.normalizesafe((random.NextFloat3() - new float3(0.5f, 0.5f, 0.5f)) * new float3(1.0f, 0.0f, 1.0f));
             float3 origin = new float3(Center.x - Columns/2, 1.0f, Center.z - Rows/2);
             var pos = new float3(origin.x + i%Columns, origin.y, origin.z + i/Columns) * 5;
 

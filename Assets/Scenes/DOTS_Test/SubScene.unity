@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 3585336748822794143, guid: bd2e18dc7530f2246a659a98d2d04bfd, type: 3}
-  Columns: 50
-  Rows: 40
+  Columns: 100
+  Rows: 100
 --- !u!4 &906301772
 Transform:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
-using UnityEngine.InputSystem; // 1. The Input System "using" statement
+﻿using UnityEngine;
+// 1. The Input System "using" statement
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 
 namespace TestLab.EventChannel
@@ -11,7 +10,7 @@ namespace TestLab.EventChannel
         private Vector3 initialPosition;
         private Quaternion initialRotation;
 
-        private float speed = 0.5f;
+        [SerializeField] private float speed = 0.5f;
         
         // 2. These variables are to hold the Action references
         InputAction resetAction;
