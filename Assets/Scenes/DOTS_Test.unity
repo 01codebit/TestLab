@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a9160582fb404d85494aa2b8034207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TestLab::TestLab.EventChannel.CameraMover
-  speed: 0.1
+  speed: 0.3
 --- !u!1001 &295408788
 PrefabInstance:
   m_ObjectHideFlags: 0
