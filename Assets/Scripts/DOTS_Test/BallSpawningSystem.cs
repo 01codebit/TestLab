@@ -14,54 +14,62 @@ namespace DOTSTest
     public partial struct BallSpawningSystem : ISystem
     {
         private EntityQuery _ballQuery;
+        
         public void OnCreate(ref SystemState state)
         {
-            Debug.Log("[XXX][BallSpawningSystem.OnCreate]");
             _ballQuery = new EntityQueryBuilder(Allocator.Temp).WithAll<Ball, LocalTransform>().Build(ref state);
         }
 
+        private static bool _firstPass = true;
+        
         public void OnUpdate(ref SystemState state)
         {
-            Debug.Log("[XXX][BallSpawningSystem.OnUpdate]");
-            var localToWorldLookup = SystemAPI.GetComponentLookup<LocalToWorld>();
-            var ecb = new EntityCommandBuffer(Allocator.Temp);
-            var world = state.World.Unmanaged;
-            
-            foreach (var (ballGroup, ballGroupLocalToWorld, entity) in
-                     SystemAPI.Query<RefRO<BallGroup>, RefRO<LocalToWorld>>()
-                         .WithEntityAccess())
+            if (_firstPass)
             {
-                var totalBalls = ballGroup.ValueRO.Columns * ballGroup.ValueRO.Rows;
+                var localToWorldLookup = SystemAPI.GetComponentLookup<LocalToWorld>();
+                var ecb = new EntityCommandBuffer(Allocator.Temp);
+                var world = state.World.Unmanaged;
 
-                var ballEntities =
-                    CollectionHelper.CreateNativeArray<Entity, RewindableAllocator>(totalBalls, ref world.UpdateAllocator);
-
-                state.EntityManager.Instantiate(ballGroup.ValueRO.Prefab, ballEntities);
-
-                var setBallLocalToWorldJob = new SetBallLocalToWorld
+                foreach (var (ballGroup, ballGroupLocalToWorld, entity) in
+                         SystemAPI.Query<RefRO<BallGroup>, RefRO<LocalToWorld>>()
+                             .WithEntityAccess())
                 {
-                    LocalToWorldFromEntity = localToWorldLookup,
-                    Entities = ballEntities,
-                    Center = ballGroupLocalToWorld.ValueRO.Position,
-                    Columns = ballGroup.ValueRO.Columns,
-                    Rows = ballGroup.ValueRO.Rows
-                };
+                    var totalBalls = ballGroup.ValueRO.Columns * ballGroup.ValueRO.Rows;
 
-                state.Dependency = setBallLocalToWorldJob.Schedule(totalBalls, 64, state.Dependency);
-                state.Dependency.Complete();
+                    var ballEntities =
+                        CollectionHelper.CreateNativeArray<Entity, RewindableAllocator>(totalBalls,
+                            ref world.UpdateAllocator);
 
-                // var setColorJob = new SetColor()
-                // {
-                //     Entities = ballEntities,
-                // };
-                //
-                // state.Dependency = setColorJob.Schedule(totalBalls, 64, state.Dependency);
-                // state.Dependency.Complete();
-                
-                ecb.DestroyEntity(entity);
+                    state.EntityManager.Instantiate(ballGroup.ValueRO.Prefab, ballEntities);
+
+                    var setBallLocalToWorldJob = new SetBallLocalToWorld
+                    {
+                        LocalToWorldFromEntity = localToWorldLookup,
+                        Entities = ballEntities,
+                        Center = ballGroupLocalToWorld.ValueRO.Position,
+                        Columns = ballGroup.ValueRO.Columns,
+                        Rows = ballGroup.ValueRO.Rows
+                    };
+
+                    state.Dependency = setBallLocalToWorldJob.Schedule(totalBalls, 64, state.Dependency);
+                    state.Dependency.Complete();
+
+                    // var setColorJob = new SetColor()
+                    // {
+                    //     Entities = ballEntities,
+                    // };
+                    //
+                    // state.Dependency = setColorJob.Schedule(totalBalls, 64, state.Dependency);
+                    // state.Dependency.Complete();
+
+                    ecb.DestroyEntity(entity);
+                }
+
+                ecb.Playback(state.EntityManager);
+
+                _firstPass = false;
             }
 
-            ecb.Playback(state.EntityManager);
             // TODO: all Prefabs are currently forced to TransformUsageFlags.Dynamic by default, which means boids get a LocalTransform
             // they don't need. As a workaround, remove the component at spawn-time.
             state.EntityManager.RemoveComponent<LocalTransform>(_ballQuery);

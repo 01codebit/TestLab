@@ -9,7 +9,8 @@ namespace DOTSTest
 {
     public class BallAuthoring : MonoBehaviour
     {
-        public float MoveSpeed = 25.0f;
+        public float MoveDelta = 0.3f;
+        public float MoveSpeed = 1.0f;
 
         class Baker : Baker<BallAuthoring>
         {
@@ -26,6 +27,7 @@ namespace DOTSTest
                 
                 AddSharedComponent(entity, new Ball
                 {
+                    MoveDelta = authoring.MoveDelta,
                     MoveSpeed = authoring.MoveSpeed
                 });
                 AddComponent(entity, new MyColor
@@ -39,6 +41,7 @@ namespace DOTSTest
     [Serializable]
     public struct Ball : ISharedComponentData
     {
+        public float MoveDelta;
         public float MoveSpeed;
     }
     
