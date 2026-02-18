@@ -15,6 +15,7 @@ namespace TestLab.EventChannel
         // 2. These variables are to hold the Action references
         InputAction resetAction;
         InputAction moveAction;
+        InputAction vMoveAction;
         // InputAction lookAction;
 
         private void Start()
@@ -27,6 +28,7 @@ namespace TestLab.EventChannel
             resetAction.performed += HandleReset; 
 
             moveAction = InputSystem.actions.FindAction("Player/Move");
+            vMoveAction = InputSystem.actions.FindAction("Player/VerticalMove");
             // moveAction.performed += HandleMove;
             
             // lookAction = InputSystem.actions.FindAction("Player/Look");
@@ -84,7 +86,6 @@ namespace TestLab.EventChannel
                 
                 var rotatedVector = Quaternion.Euler(0, moveValue.x, 0) * transform.forward;
                 transform.forward = rotatedVector;
-
             }
 
             // if (lookAction.inProgress)
@@ -93,6 +94,14 @@ namespace TestLab.EventChannel
             //     var rotatedVector = Quaternion.Euler(-lookValue.y, lookValue.y, 0) * transform.forward;
             //     transform.forward = rotatedVector;
             // }
+            
+            if (vMoveAction.inProgress)
+            {
+                var vMoveValue = vMoveAction.ReadValue<Vector2>() * speed;
+
+                var up = Vector3.Normalize(new Vector3(0f, transform.up.y, 0f));
+                transform.Translate(up * vMoveValue.y, Space.World);                
+            }
         }
 
         public void Scroll(InputAction.CallbackContext context)
