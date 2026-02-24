@@ -1042,6 +1042,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "TEST",
+            "id": "862fa657-1d2e-4f96-b732-b1b596b618d5",
+            "actions": [
+                {
+                    "name": "Test_0",
+                    "type": "Button",
+                    "id": "535e4e6f-679b-49fc-adbf-f0030936bb2f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test_1",
+                    "type": "Button",
+                    "id": "035387cc-e63b-4a40-af79-4a0239faba47",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test_2",
+                    "type": "Button",
+                    "id": "1054c2f7-f713-4375-b294-2307453e327d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0696c688-776f-44fb-a741-e0a50de6ffdc",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Test_0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75209141-8693-4973-8b9a-bbb697626def",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Test_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29d3601d-8b0f-4c04-a0be-61b163f6a444",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Test_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

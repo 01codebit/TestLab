@@ -14,8 +14,12 @@ namespace DOTSTest
     {
         private EntityQuery _ballQuery;
 
+        private static bool _executeSystem = false;
+        
         public void OnUpdate(ref SystemState state)
         {
+            if (!_executeSystem) return;
+            
             var ballsQuery = SystemAPI.QueryBuilder().WithAll<Ball>().WithAllRW<LocalToWorld>().Build();
             
             var world = state.WorldUnmanaged;

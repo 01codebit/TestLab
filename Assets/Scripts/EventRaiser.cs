@@ -22,9 +22,9 @@ namespace TestLab.EventChannel
 
         void Start()
         {
-            enterAction = InputSystem.actions.FindAction("Test_Enter");
-            numpad0Action = InputSystem.actions.FindAction("Test_Numpad_0");
-            numpad1Action = InputSystem.actions.FindAction("Test_Numpad_1");
+            enterAction = InputSystem.actions.FindAction("TEST/Test_0");
+            numpad0Action = InputSystem.actions.FindAction("TEST/Test_1");
+            numpad1Action = InputSystem.actions.FindAction("TEST/Test_2");
         }
 
 
