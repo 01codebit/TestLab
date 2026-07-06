@@ -13,7 +13,10 @@ namespace TestLab.EventChannel
 
             var request = response.RequestMessage;
 
-            var message = $"{request?.Method} " + $"{request?.RequestUri} + $\"HTTP/{{request?.Version}}\n";
+            var message = "[HttpResponseMessage.WriteRequestToConsole]" 
+                          + $" method: {request?.Method}" 
+                          + $" uri: '{request?.RequestUri}'" 
+                          + $" [HTTP/{request?.Version}]";
             return message;
         }
     }

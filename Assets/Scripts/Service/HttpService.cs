@@ -84,7 +84,7 @@ namespace TestLab.EventChannel
             //var response = await sharedClient.GetAsync("todos?userId=1&completed=false");
             ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] requestUri: {requestUri.ToString()}");
             var response = await sharedClient.GetAsync(requestUri);
-            response.EnsureSuccessStatusCode();
+            Debug.Log(response.EnsureSuccessStatusCode().WriteRequestToConsole());
             var responseBody = await response.Content.ReadAsStringAsync();
             
             var result = $"[GET] {baseUri}/{requestUri} [HTTP/1.1] responseBody: {responseBody}";
