@@ -433,11 +433,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6169a54b3cd5e3f498bec6c4e1460537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TestLab::UnityUtils.InputBufferJumpExample
-  jumpBufferTime:
+  jumpBufferInput:
     holdTime: 0.12
     bufferedValue: 1
   jumpVelocity: 6
-  groundProbeDistance: 0.2
+  groundProbeDistance: 1.15
   groundLayers:
     serializedVersion: 2
     m_Bits: 4294967295

@@ -1,7 +1,6 @@
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEditor;
+using Debug = UnityEngine.Debug;
 
 namespace UnityUtils
 {
@@ -9,12 +8,13 @@ namespace UnityUtils
     {
         [Header("Jump Settings")]
         [SerializeField]
-        private TimedInputBuffer jumpBufferInput = new();
+        private TimedInputBuffer jumpBuffer = new();
 
+        [Header("Jump")]
         [SerializeField]
         private float jumpVelocity = 6f;
 
-        [Header("Ground Settings")]
+        [Header("Ground Check")]
         [SerializeField]
         private float groundProbeDistance = 0.2f;
 
@@ -31,29 +31,43 @@ namespace UnityUtils
             jumpAction = InputSystem.actions.FindAction("Jump");
         }
 
-        void Update()
+        private bool IsJumpPressedThisFrame() => jumpAction.IsPressed();
+        
+        private void Update()
         {
-            if (jumpAction.IsPressed())
+            if (IsJumpPressedThisFrame())
             {
-                UnityEngine.Debug.Log("Jump pressed");
-                jumpBufferInput.Set();
+                jumpBuffer.Set();
             }
 
-            TryConsumeJumpBuffer();
+            TryConsumeBufferedJump();
         }
 
-        void TryConsumeJumpBuffer()
+        private void TryConsumeBufferedJump()
         {
-            if (!isGrounded || !jumpBufferInput.HasBuffer)
+            if (!isGrounded || !jumpBuffer.HasBuffer)
+            {
+                Debug.Log($"[InputBufferJumpExample.TryConsumeBufferedJump] isGrounded: {isGrounded} - jumpBufferInput.HasBuffer: {jumpBuffer.HasBuffer}");
                 return;
+            }
 
-            rigidBody.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+            Debug.Log("[InputBufferJumpExample.TryConsumeBufferedJump]");
+
+            DoJump();
             
             // var velocity = rigidBody.linearVelocity;
             // velocity.y = jumpVelocity;
             // rigidBody.linearVelocity = velocity;
 
-            jumpBufferInput.Consume();
+            jumpBuffer.Consume();
+        }
+
+        private void DoJump()
+        {
+            // if (isJumping) return;
+            
+            rigidBody.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 }
