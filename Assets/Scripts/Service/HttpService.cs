@@ -16,64 +16,66 @@ namespace TestLab.EventChannel
     [BurstCompile]
     public static class HttpService //: IJob
     {
-        private static bool initialized = false;
+        private static bool _initialized = false;
 
-        private static HttpRequestHeaders defaultRequestHeaders;
+        private static HttpRequestHeaders _defaultRequestHeaders;
         
+        private const string BaseUri = "https://jsonplaceholder.typicode.com"; 
+
+        // HttpClient lifecycle management best practices:
+        // https://learn.microsoft.com/dotnet/fundamentals/networking/http/httpclient-guidelines#recommended-use
+        // ...BUT, Unity uses .NET Standard 2.1:
+        // https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-net-http-httpclient
+        private static HttpClient _sharedClient;
+
         private static void Initialize()
         {
-            if (initialized) return;
+            if (_initialized) return;
             
-            sharedClient = new HttpClient
+            _sharedClient = new HttpClient
             {
-                BaseAddress = new Uri(baseUri)
+                BaseAddress = new Uri(BaseUri)
             };
             
             // sharedClient.DefaultRequestHeaders.Add("", "");
 
-            initialized = true;
+            _initialized = true;
         }
         
         // public void Execute()
         // {
 
         // }
-
-        private const string baseUri = "https://jsonplaceholder.typicode.com"; 
         
-        // HttpClient lifecycle management best practices:
-        // https://learn.microsoft.com/dotnet/fundamentals/networking/http/httpclient-guidelines#recommended-use
-        // ...BUT, Unity uses .NET Standard 2.1:
-        // https://learn.microsoft.com/en-us/dotnet/fundamentals/runtime-libraries/system-net-http-httpclient
-        private static HttpClient sharedClient;
-        
+        // Expected output:
+        //   GET https://jsonplaceholder.typicode.com/todos/3 HTTP/1.1
+        //   {
+        //     "userId": 1,
+        //     "id": 3,
+        //     "title": "fugiat veniam minus",
+        //     "completed": false
+        //   }
         public static async Task<string> GetAsync()
         {
-            using HttpResponseMessage response = await sharedClient.GetAsync("todos/3");
-    
+            using var response = await _sharedClient.GetAsync("todos/3");
             var request = response.EnsureSuccessStatusCode().WriteRequestToConsole();
-    
+
             var jsonResponse = await response.Content.ReadAsStringAsync();
 
-            var result = $"request: {request}\nresponse: {jsonResponse}"; 
+            var result = $"request: {request}\nresponse: {jsonResponse}";
             
-            // Expected output:
-            //   GET https://jsonplaceholder.typicode.com/todos/3 HTTP/1.1
-            //   {
-            //     "userId": 1,
-            //     "id": 3,
-            //     "title": "fugiat veniam minus",
-            //     "completed": false
-            //   }
-
             return result;
         }
         
-        public static async Task GetFromJsonAsync<T>(string endpoint, Dictionary<string, string> parameters, DataStructure<T> dataStructure=null)
+        public static async Task GetFromJsonAsync<T>(
+            string endpoint, 
+            Dictionary<string, string> parameters, 
+            DataStructure<T> dataStructure = null
+        )
         {
-            if(!initialized) Initialize();
+            if(!_initialized) Initialize();
 
-            if (sharedClient == null)
+            if (_sharedClient == null)
             {
                 throw new InvalidOperationException("HttpClient is not initialized. Call Initialize() first.");
             }
@@ -83,11 +85,11 @@ namespace TestLab.EventChannel
             
             //var response = await sharedClient.GetAsync("todos?userId=1&completed=false");
             ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] requestUri: {requestUri.ToString()}");
-            var response = await sharedClient.GetAsync(requestUri);
+            var response = await _sharedClient.GetAsync(requestUri);
             Debug.Log(response.EnsureSuccessStatusCode().WriteRequestToConsole());
             var responseBody = await response.Content.ReadAsStringAsync();
             
-            var result = $"[GET] {baseUri}/{requestUri} [HTTP/1.1] responseBody: {responseBody}";
+            var result = $"[GET] {BaseUri}/{requestUri} [HTTP/1.1] responseBody: {responseBody}";
             ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] {result}");
 
             if (responseBody.StartsWith('['))
@@ -130,11 +132,14 @@ namespace TestLab.EventChannel
             //   Todo { UserId = 1, Id = 18, Title = dolorum est consequatur ea mollitia in culpa, Completed = False }
         }
 
-        public static async Task<List<T>> GetFromJsonAsync<T>(string endpoint, Dictionary<string, string> parameters)
+        public static async Task<List<T>> GetFromJsonAsync<T>(
+            string endpoint, 
+            Dictionary<string, string> parameters
+        )
         {
-            if(!initialized) Initialize();
+            if(!_initialized) Initialize();
             
-            if (sharedClient == null)
+            if (_sharedClient == null)
             {
                 throw new InvalidOperationException("HttpClient is not initialized. Call Initialize() first.");
             }
@@ -150,11 +155,11 @@ namespace TestLab.EventChannel
             
             //var response = await sharedClient.GetAsync("todos?userId=1&completed=false");
             ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] requestUri: {requestUri.ToString()}");
-            var response = await sharedClient.GetAsync(requestUri);
+            var response = await _sharedClient.GetAsync(requestUri);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             
-            var result = $"[GET] {baseUri}/{requestUri} [HTTP/1.1] responseBody: {responseBody}";
+            var result = $"[GET] {BaseUri}/{requestUri} [HTTP/1.1] responseBody: {responseBody}";
             ConditionalLogger.Log($"[HttpService.GetFromJsonAsync] {result}");
             
             if (responseBody.StartsWith('['))
